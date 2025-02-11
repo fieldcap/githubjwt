@@ -1,19 +1,12 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 
-namespace GitHubJwt
+namespace GitHubJwt;
+
+public class FilePrivateKeySource(String filePath) : IPrivateKeySource
 {
-    public class FilePrivateKeySource : IPrivateKeySource
+    public TextReader GetPrivateKeyReader()
     {
-        private readonly string filePath;
-
-        public FilePrivateKeySource(string filePath)
-        {
-            this.filePath = filePath;
-        }
-
-        public TextReader GetPrivateKeyReader()
-        {
-            return new StreamReader(new FileStream(filePath, FileMode.Open, FileAccess.Read));
-        }
+        return new StreamReader(new FileStream(filePath, FileMode.Open, FileAccess.Read));
     }
 }

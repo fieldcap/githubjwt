@@ -1,9 +1,8 @@
 ﻿using System.IO;
 
-namespace GitHubJwt
+namespace GitHubJwt;
+
+public interface IPrivateKeySource
 {
-    public interface IPrivateKeySource
-    {
-        TextReader GetPrivateKeyReader();
-    }
+    TextReader GetPrivateKeyReader();
 }

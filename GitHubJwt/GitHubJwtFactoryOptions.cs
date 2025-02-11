@@ -1,8 +1,10 @@
-﻿namespace GitHubJwt
+﻿using System;
+
+namespace GitHubJwt;
+
+public class GitHubJwtFactoryOptions
 {
-    public class GitHubJwtFactoryOptions
-    {
-        public int AppIntegrationId { get; set; }
-        public int ExpirationSeconds { get; set; }
-    }
+    public String ClientId { get; set; }
+    public Int32 AppIntegrationId { get; set; }
+    public Int32 ExpirationSeconds { get; set; }
 }

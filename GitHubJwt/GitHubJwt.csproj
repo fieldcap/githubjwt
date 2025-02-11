@@ -1,4 +1,8 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+  </PropertyGroup>
 
   <PropertyGroup>
     <Title>GitHubJwt</Title>
@@ -14,13 +18,9 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-  </PropertyGroup>
-
   <ItemGroup>
-    <PackageReference Include="BouncyCastle.NetCore" Version="1.9.0" />
-    <PackageReference Include="jose-jwt" Version="4.1.0" />
+    <PackageReference Include="BouncyCastle.NetCore" Version="2.2.1" />
+    <PackageReference Include="jose-jwt" Version="5.1.1" />
   </ItemGroup>
 
 </Project>

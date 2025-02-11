@@ -1,16 +1,28 @@
-﻿using System.Text;
+﻿using System;
+using System.Text;
 
-namespace GitHubJwt
+namespace GitHubJwt;
+
+internal static class StringExtensions
 {
-    internal static class StringExtensions
+    private const String BeginRsaPrivateKey = "-----BEGIN RSA PRIVATE KEY-----";
+    private const String EndRsaPrivateKey = "-----END RSA PRIVATE KEY-----";
+
+    public static String HydrateRsaVariable(this String input)
     {
-        public static string HydrateRsaVariable(this string input)
+        var stringBuilder = new StringBuilder();
+        if(!input.StartsWith(BeginRsaPrivateKey))
         {
-            StringBuilder stringBuilder = new StringBuilder();
-            stringBuilder.AppendLine("-----BEGIN RSA PRIVATE KEY-----");
-            stringBuilder.AppendLine(input);
-            stringBuilder.AppendLine("-----END RSA PRIVATE KEY-----");
-            return stringBuilder.ToString();
+            stringBuilder.AppendLine(BeginRsaPrivateKey);
         }
+
+        stringBuilder.AppendLine(input);
+
+        if(!input.EndsWith(EndRsaPrivateKey))
+        {
+            stringBuilder.AppendLine(EndRsaPrivateKey);
+        }
+
+        return stringBuilder.ToString();
     }
 }

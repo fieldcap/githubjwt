@@ -1,7 +1,8 @@
-﻿namespace GitHubJwt
+﻿using System;
+
+namespace GitHubJwt;
+
+public interface IGitHubJwtFactory
 {
-    public interface IGitHubJwtFactory
-    {
-        string CreateEncodedJwtToken(System.TimeSpan? iatOffset = null);
-    }
+    String CreateEncodedJwtToken(TimeSpan? iatOffset = null);
 }
